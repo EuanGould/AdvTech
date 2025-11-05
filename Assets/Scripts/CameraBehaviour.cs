@@ -12,16 +12,16 @@ public class CameraBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (NetworkManager.Singleton.LocalClient != null)
-        {
-            if (NetworkManager.Singleton.LocalClient.PlayerObject != null)
-            {
-                transform.position = new Vector3(
-                    NetworkManager.Singleton.LocalClient.PlayerObject.transform.position.x,
-                    transform.position.y,
-                    NetworkManager.Singleton.LocalClient.PlayerObject.transform.position.z
-                );
-            }
-        }
+        //if (NetworkManager.Singleton.LocalClient != null)
+        //{
+        //    if (NetworkManager.Singleton.LocalClient.PlayerObject != null)
+        //    {
+        //        transform.position = new Vector3(
+        //            NetworkManager.Singleton.LocalClient.PlayerObject.transform.position.x,
+        //            transform.position.y,
+        //            NetworkManager.Singleton.LocalClient.PlayerObject.transform.position.z
+        //        );
+        //    }
+        //}
     }
 }
