@@ -437,13 +437,13 @@ MonoBehaviour:
   offlineSceneLoadDelay: 0
   transport: {fileID: 187361306}
   networkAddress: localhost
-  maxConnections: 100
+  maxConnections: 2
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 5940525947837403604, guid: 4227d3f5e9fad444f88ef230b353c722, type: 3}
   autoCreatePlayer: 1
-  playerSpawnMethod: 0
+  playerSpawnMethod: 1
   spawnPrefabs: []
   exceptionsDisconnect: 1
   snapshotSettings:

@@ -1,5 +1,6 @@
 using UnityEngine;
-using Unity.Netcode;
+//using Unity.Netcode;
+using Mirror;
 
 public class CameraBehaviour : MonoBehaviour
 {
@@ -12,6 +13,19 @@ public class CameraBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (NetworkClient.localPlayer != null)
+        {
+            if (NetworkClient.localPlayer.gameObject != null)
+            {
+                transform.position = new Vector3(
+                    NetworkClient.localPlayer.gameObject.transform.position.x,
+                    transform.position.y,
+                    NetworkClient.localPlayer.gameObject.transform.position.z
+                );
+            }
+        }
+
+
         //if (NetworkManager.Singleton.LocalClient != null)
         //{
         //    if (NetworkManager.Singleton.LocalClient.PlayerObject != null)
