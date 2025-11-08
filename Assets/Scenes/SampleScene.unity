@@ -436,7 +436,7 @@ MonoBehaviour:
   onlineScene: Assets/Scenes/SampleScene.unity
   offlineSceneLoadDelay: 0
   transport: {fileID: 187361306}
-  networkAddress: localhost
+  networkAddress: 192.168.86.33
   maxConnections: 2
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
@@ -909,7 +909,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 24
+  MaxDistance: 120
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -1004,7 +1004,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &396473159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1617,7 +1617,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 24
+  MaxDistance: 80
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -1841,7 +1841,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 24
+  MaxDistance: 80
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -3524,7 +3524,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 24
+  MaxDistance: 80
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0

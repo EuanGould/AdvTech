@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class floorButtonBehaviour : MonoBehaviour
@@ -21,9 +23,15 @@ public class floorButtonBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            if (GetComponent<MeshRenderer>().material == off)
+            {
+                bridge_script.Activate();
+                audio_source.Play();
+            }
+
+
             GetComponent<MeshRenderer>().material = on;
-            bridge_script.Activate();
-            audio_source.Play();
+
         }
     }
 
@@ -31,10 +39,33 @@ public class floorButtonBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GetComponent<MeshRenderer>().material = off;
-            bridge_script.Activate();
-            audio_source.Play();
+            Collider[] all_overlappers;
+            BoxCollider box_collider = GetComponent<BoxCollider>();
+
+            all_overlappers = Physics.OverlapBox(transform.position + box_collider.center, transform.localScale / 2);
+
+            bool player_still_present = false;
+
+            foreach (Collider col in all_overlappers)
+            {
+                if (col.gameObject.CompareTag("Player"))
+                {
+                    player_still_present = true;
+                }
+            }
+            
+            if (!player_still_present)
+            {
+                GetComponent<MeshRenderer>().material = off;
+                bridge_script.Activate();
+                audio_source.Play();
+            }
+
         }
+
+
+
+
     }
 
 }
