@@ -21,6 +21,11 @@ public class lightButtonBehaviour : MonoBehaviour
 
     private int charges;
 
+    public void resetCharges()
+    {
+        charges = max_charges;
+    }
+
     private void Awake()
     {
         audio_source = GetComponent<AudioSource>();
@@ -40,6 +45,7 @@ public class lightButtonBehaviour : MonoBehaviour
                 light_timer = 0.1f;
                 light_status = true;
                 light_object.GetComponent<MeshRenderer>().material = on;
+                GetComponent<MeshRenderer>().material = on;
                 charges --;
             }
         }
@@ -65,7 +71,9 @@ public class lightButtonBehaviour : MonoBehaviour
             {
                 light_status = false;
                 light_object.GetComponent<MeshRenderer>().material = off;
+                GetComponent<MeshRenderer>().material = off;
             }
         }
     }
+
 }
