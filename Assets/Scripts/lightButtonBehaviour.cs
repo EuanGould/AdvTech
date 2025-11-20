@@ -26,6 +26,7 @@ public class lightButtonBehaviour : MonoBehaviour
     {
         charges = max_charges;
         GetComponent<MeshRenderer>().material = off;
+        light_object.GetComponent<MeshRenderer>().material = off;
     }
 
     private void Awake()
@@ -47,17 +48,10 @@ public class lightButtonBehaviour : MonoBehaviour
                 audio_source.Play();
 
                 charges --;
-                if (charges <= 0)
-                {
-                    GetComponent<MeshRenderer>().material = dead;
-                }
-                else
-                {
-                    light_timer = 0.1f;
-                    light_status = true;
-                    light_object.GetComponent<MeshRenderer>().material = on;
-                    GetComponent<MeshRenderer>().material = on;
-                }
+                light_timer = 0.3f;
+                light_status = true;
+                light_object.GetComponent<MeshRenderer>().material = on;
+                GetComponent<MeshRenderer>().material = on;
             }
         }
     }
@@ -67,6 +61,12 @@ public class lightButtonBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             transform.localScale = default_scale;
+
+            if (charges <= 0)
+            {
+                GetComponent<MeshRenderer>().material = dead;
+                light_object.GetComponent<MeshRenderer>().material = dead;
+            }
         }
     }
 
