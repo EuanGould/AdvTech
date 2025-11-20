@@ -7,6 +7,7 @@ public class BridgeFloorButton : MonoBehaviour
     [SerializeField] Material off;
 
     [SerializeField] lightButtonBehaviour[] light_buttons;
+    [SerializeField] ShownNumber shown_number;
 
     private float light_timer = 0;
 
@@ -17,6 +18,7 @@ public class BridgeFloorButton : MonoBehaviour
         foreach (lightButtonBehaviour light_button in light_buttons)
         {
             light_button.resetCharges();
+            shown_number.Reset();
         }
     }
 

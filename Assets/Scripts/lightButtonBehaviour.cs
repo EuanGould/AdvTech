@@ -8,6 +8,7 @@ public class lightButtonBehaviour : MonoBehaviour
     [SerializeField] Material off;
     [SerializeField] float compressed_y_size;
     [SerializeField] int max_charges = 4;
+    [SerializeField] Material dead;
 
     private GameObject light_object;
 
@@ -24,6 +25,7 @@ public class lightButtonBehaviour : MonoBehaviour
     public void resetCharges()
     {
         charges = max_charges;
+        GetComponent<MeshRenderer>().material = off;
     }
 
     private void Awake()
@@ -32,6 +34,7 @@ public class lightButtonBehaviour : MonoBehaviour
         default_scale = transform.localScale;
         light_object = transform.GetChild(0).gameObject;
         charges = max_charges;
+        GetComponent<MeshRenderer>().material = off;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,11 +45,19 @@ public class lightButtonBehaviour : MonoBehaviour
             {
                 transform.localScale = new Vector3(1, compressed_y_size, 1);
                 audio_source.Play();
-                light_timer = 0.1f;
-                light_status = true;
-                light_object.GetComponent<MeshRenderer>().material = on;
-                GetComponent<MeshRenderer>().material = on;
+
                 charges --;
+                if (charges <= 0)
+                {
+                    GetComponent<MeshRenderer>().material = dead;
+                }
+                else
+                {
+                    light_timer = 0.1f;
+                    light_status = true;
+                    light_object.GetComponent<MeshRenderer>().material = on;
+                    GetComponent<MeshRenderer>().material = on;
+                }
             }
         }
     }
@@ -66,6 +77,7 @@ public class lightButtonBehaviour : MonoBehaviour
             if (light_timer > 0)
             {
                 light_timer -= Time.fixedDeltaTime;
+
             }
             else
             {
